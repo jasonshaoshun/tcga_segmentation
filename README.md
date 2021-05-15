@@ -1,25 +1,11 @@
 This repository is a software system containing an end-to-end Whole Slide Imaging pre-processing pipeline from 
-The Cancer Genome Atlas download documents, as well as a complete implementation 
-of deep learning tumor segmentation from WSI binary labels as detailed in 
-"Weakly supervised multiple instance learning histopathological tumor segmentation".
-
-[Download 6461 tumor maps from The Cancer Genome Atlas](https://github.com/MarvinLer/tcga_segmentation/releases/download/v1.0.0/thresholded_tumor_maps.zip)
-
-<div align="center">
-  <img alt="Example of WSI segmentations" src="img/example.gif" />
-  <p>Example of Whole Slide Image tumor segmentation (black background; blue: normal tissue; pink: neoplastic tissue).</p>
-</div>
+The Cancer Genome Atlas download documents, as well as several MIL models on the kidney classification problem. The pre-processing is inherited from the tcga_segmentation repository, citation is attached at the end. If you need more support on the MIL-model playing, please email zcabhao@ucl.ac.uk for help.
 
 ## Major features
 This software is entirely written in Python3 and contains two major parts:
-* a tool to automatically download data from [TCGA GDC Data Portal](https://portal.gdc.cancer.gov/),
+* Inherited from the original tcga_segmentation a tool to automatically download data from [TCGA GDC Data Portal](https://portal.gdc.cancer.gov/),
 which also handles tiles extraction, background removal, and tumor label extraction.
-* an end-to-end pytorch software that can train many types of common image classifier
-architectures for the task of tumor segmentation on WSI based on weak binary WSI 
-labels indicating the presence of tumor in each WSI.
-* a [collection](results/README.md) of 6481 semi-automatically generated tumor maps for the entire snap-frozen WSI of 
-TCGA repository for breast, kidney, and bronchus and lung locations.
-
+* The MIL model in the folder on MIL, can deployed onto the colab notebook to enable the gpu.
 ## Installation
 
 Use python3 and install mandatory libraries:
@@ -38,7 +24,7 @@ pip install -r requirements.txt
 the associated manifest file, and place it in a `source_folder`
 2. Launch the download and pre-processing pipeline with:
 <pre>
-python -m code.data_processing.main --gdc <i>gdc_executable_path</i> source_folder
+python -m code.data_processing.main --gdc ./gdc-client --manifest gdc_manifest_tcga_2.txt --source-slides-folder source_folder output_folder
 </pre>
 
 This script first downloads all files in the manifest file, then tiles WSI, extracts tiles of a given magnification, 
@@ -65,7 +51,7 @@ This software is released under the
 ## Citation
 
 If you use this software or any part of this software in your research, 
-please use the following BibTeX entry.
+please use the following BibTeX entry for the original author on the tcga. If you need more support on the MIL-model playing, please email zcabhao@ucl.ac.uk for help.
 
 ```BibTeX
 @misc{lerousseau2020weakly,
