@@ -43,8 +43,9 @@ This software is released under the
 
 ## Citation
 
-If you use this software or any part of this software in your research, 
-please use the following BibTeX entry for the original author on the tcga. If you need more support on the MIL-model playing, please email zcabhao@ucl.ac.uk for help.
+If you use the pre-processing in your research, please use the following BibTeX entry for the original author on the tcga. 
+
+If you need more support on the MIL-model playing, please email zcabhao@ucl.ac.uk for help.
 
 ```BibTeX
 @misc{lerousseau2020weakly,
