@@ -23,7 +23,7 @@ pip install -r requirements.txt
 the associated manifest file, and place it in a `source_folder`
 2. Launch the download and pre-processing pipeline with:
 <pre>
-python -m code.data_processing.main --gdc ./gdc-client --manifest gdc_manifest_tcga_2.txt --source-slides-folder source_folder output_folder
+python -m code.data_processing.main --gdc ./gdc-client --manifest data/gdc_manifest_tcga_2.txt --source-slides-folder source_folder output_folder
 </pre>
 
 This script first downloads all files in the manifest file, then tiles WSI, extracts tiles of a given magnification, 
