@@ -25,6 +25,11 @@ the associated manifest file, and place it in a `source_folder`
 <pre>
 python -m code.data_processing.main --gdc ./gdc-client --manifest data/gdc_manifest_tcga_2.txt --source-slides-folder source_folder output_folder
 </pre>
+You can unlimit the user process resource limits by
+<pre>
+ulimit -a       
+ulimit -Sn 10000
+</pre>
 
 This script first downloads all files in the manifest file, then tiles WSI, extracts tiles of a given magnification, 
 removes background tiles, and finally seeks to extract per-slide binary labels from their name. More information 
