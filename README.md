@@ -1,11 +1,10 @@
-This repository is a software system containing an end-to-end Whole Slide Imaging pre-processing pipeline from 
-The Cancer Genome Atlas download documents, as well as several MIL models on the kidney classification problem. The pre-processing is inherited from the tcga_segmentation repository, citation is attached at the end. If you need more support on the MIL-model playing, please email zcabhao@ucl.ac.uk for help.
+This repository is a software system containing an end-to-end Whole Slide Imaging pre-processing pipeline from The Cancer Genome Atlas download documents, as well as several MIL models on the kidney classification problem. The pre-processing is inherited from the tcga_segmentation repository, citation is attached at the end. If you need more support on the MIL-model playing, please email zcabhao@ucl.ac.uk for help.
 
 ## Major features
 This software is entirely written in Python3 and contains two major parts:
 * Inherited from the original tcga_segmentation a tool to automatically download data from [TCGA GDC Data Portal](https://portal.gdc.cancer.gov/),
 which also handles tiles extraction, background removal, and tumor label extraction.
-* The MIL model in the folder on MIL, can deployed onto the colab notebook to enable the gpu.
+* The MIL models in the folder on MIL, can deployed onto the colab notebook to enable the gpu.
 ## Installation
 
 Use python3 and install mandatory libraries:
@@ -31,17 +30,11 @@ This script first downloads all files in the manifest file, then tiles WSI, extr
 removes background tiles, and finally seeks to extract per-slide binary labels from their name. More information 
 [here _(in construction)_](code/data_processing/README.md).
 
-### Training WSI segmentation models
+### Training WSI classification models
 
-After data download and pre-processing has been performed, launch the training pipeline using:
-```
-python -m code.training --preprocessed-data-folder ./data/preprocessed --alpha 0.1 --beta 0. --max-bag-size 100
-```
+After data download and pre-processing has been performed, open the jupyter notebook to play with the MIL dataset. You can choose to upload the notebook onto the. google colab and dataset on the google drive, or play locally.
+We have already uploaded a small dataset on google drive and can be automatically downloaded in the code with authorised link.
 
-Many parameters are tunable, see `python -m code.training --help`
-
-More informations about the training pipeline, including available imaging models 
-[here _(in construction)_](code/README.md).
 
 ## License
 
